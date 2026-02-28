@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Root: FrameLayout so wallpaper sits behind everything else -->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient">
+
+    <!-- ① Wallpaper (full-bleed) -->
+    <ImageView
+        android:id="@+id/wallpaperView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:contentDescription="Wallpaper" />
+
+    <!-- ② Semi-transparent scrim so clock is always readable -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#44000000" />
+
+    <!-- ③ Clock — centered in upper 65% of screen -->
+    <com.watchlauncher.ClockView
+        android:id="@+id/clockView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp" />
+
+    <!-- ④ Dock — pinned apps row at the very bottom -->
+    <LinearLayout
+        android:id="@+id/dockContainer"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="#55000000"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp" />
+
+    <!-- ⑤ Swipe-up hint arrow (subtle) -->
+    <View
+        android:id="@+id/swipeHint"
+        android:layout_width="24dp"
+        android:layout_height="4dp"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="6dp"
+        android:background="#88FFFFFF"
+        android:alpha="0.6" />
+
+</FrameLayout>
